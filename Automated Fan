@@ -28,7 +28,7 @@ void loop()
   Serial.println(tempC); // will output the converted temperature to pc
   
 
-  if (tempC >=26 && tempC <28)
+  if (tempC >=25 && tempC <28)
   {
     fanspeed=100;
     //digitalWrite (ledPin, HIGH) ; using for test purpose
