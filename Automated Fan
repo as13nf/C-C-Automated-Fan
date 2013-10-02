@@ -30,7 +30,7 @@ void loop()
 
   if (tempC >=25 && tempC <28)
   {
-    fanspeed=100;
+    fanspeed=150;
     //digitalWrite (ledPin, HIGH) ; using for test purpose
     analogWrite (fanoutput, fanspeed);
     
