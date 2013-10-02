@@ -1,0 +1,59 @@
+// Declare varibles
+
+float tempC = 0;
+int tempPin = A0; // temp sensor plugged in analog pin 0
+//int ledPin = 13;// led is connected to pin 13 -using for test purpose
+int fanoutput = 5 ; // fan out to transistor base 
+int fanspeed;
+
+
+// Write setup
+
+void setup ()
+
+{
+  Serial.begin(9600); // opens serial port to communicate with temp sensor
+ // pinMode(ledPin, OUTPUT); using for test purpose
+  pinMode(fanoutput, OUTPUT);
+  pinMode(tempPin, INPUT);
+}
+
+// write loop that will control what we waht the arduino to do with the temp sensor
+
+void loop()
+{
+  tempC = analogRead(tempPin); // Taking temp pin reading and setting in equal to the tempC veriable
+  tempC = (5.0* tempC*100.0)/ 1024.0; //will convert analog input to a temperature in celcious
+  delay(1);
+  Serial.println(tempC); // will output the converted temperature to pc
+  
+
+  if (tempC >=26 && tempC <28)
+  {
+    fanspeed=100;
+    //digitalWrite (ledPin, HIGH) ; using for test purpose
+    analogWrite (fanoutput, fanspeed);
+    
+  }
+  if (tempC >=28 && tempC <35)
+  
+  {
+    fanspeed=200;
+    //digitalWrite (ledPin, HIGH) ; using for test purpose
+    analogWrite (fanoutput, fanspeed);
+  }
+  if(tempC >=35)
+  {
+    fanspeed=250;
+  //digitalWrite (ledPin, HIGH) ; using for test purpose
+  analogWrite (fanoutput, fanspeed);
+  }
+  if(tempC < 26)
+  
+  {
+    fanspeed=0;
+    //digitalWrite (ledPin, LOW) ; using for test purpose
+    analogWrite (fanoutput, fanspeed);
+
+  }
+}
