@@ -1,8 +1,8 @@
-// Declare varibles
+// Automated Desk Fan
 
 float tempC = 0;
-int tempPin = A0; // temp sensor plugged in analog pin 0
-//int ledPin = 13;// led is connected to pin 13 -using for test purpose
+int tempPin = A0; // temp sensor plugged to analog pin 0
+//int ledPin = 13;// led is connected to pin 13 -using for testing purpose
 int fanoutput = 5 ; // fan out to transistor base 
 int fanspeed;
 
